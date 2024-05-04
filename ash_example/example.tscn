@@ -1,126 +1,132 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=3 uid="uid://dcme6u2lnig7h"]
 
-[ext_resource path="res://ash_example/no_animated_sprite_animation.tres" type="Animation" id=1]
-[ext_resource path="res://ash_example/2d_animation_player-run.tres" type="SpriteFrames" id=2]
-[ext_resource path="res://ash_example/2d_animation_frog_spritesheet.tres" type="SpriteFrames" id=3]
-[ext_resource path="res://ash_example/icon.png" type="Texture" id=4]
+[ext_resource type="Animation" path="res://ash_example/no_animated_sprite_animation.tres" id="1"]
+[ext_resource type="SpriteFrames" uid="uid://ctn116ryk5xey" path="res://ash_example/2d_animation_player-run.tres" id="2"]
+[ext_resource type="SpriteFrames" uid="uid://du57ypvjcndd3" path="res://ash_example/2d_animation_frog_spritesheet.tres" id="3"]
+[ext_resource type="Texture2D" uid="uid://5h156hch4evl" path="res://ash_example/icon.png" id="4"]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id="2"]
 length = 0.001
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("SomethingElse:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ Vector2( -30, -21 ) ]
+"values": [Vector2(-30, -21)]
 }
 tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/path = NodePath("AnotherOne:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ 0.0 ]
+"values": [0.0]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id="3"]
 resource_name = "empty"
 length = 0.7
-loop = true
+loop_mode = 1
 
-[sub_resource type="Animation" id=1]
+[sub_resource type="Animation" id="1"]
 resource_name = "with_animated_sprite"
 length = 0.6
-loop = true
+loop_mode = 1
 step = 0.0166667
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("Fox:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.333333 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array(0, 0.333333),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [ Vector2( -45, -15 ), Vector2( -50, -15 ) ]
+"values": [Vector2(-45, -15), Vector2(-50, -15)]
 }
 tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/path = NodePath("Fox:frames")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.333334 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array(0, 0.333334),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [ ExtResource( 2 ), ExtResource( 2 ) ]
+"values": [ExtResource("2"), ExtResource("2")]
 }
 tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
 tracks/2/path = NodePath("Fox:animation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.333334 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array(0, 0.333334),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [ "run_1", "run_60" ]
+"values": ["run_1", "run_60"]
 }
 tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
 tracks/3/path = NodePath("Fox:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.333334, 0.350001, 0.366667, 0.383334, 0.400001, 0.416667, 0.433334, 0.450001, 0.466667, 0.483334, 0.500001, 0.516667, 0.533334, 0.550001, 0.566667, 0.583334 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.333334, 0.350001, 0.366667, 0.383334, 0.400001, 0.416667, 0.433334, 0.450001, 0.466667, 0.483334, 0.500001, 0.516667, 0.533334, 0.550001, 0.566667, 0.583334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [ 0, 1, 2, 3, 0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5, 0, 1, 2, 3 ]
+"values": [0, 1, 2, 3, 0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5, 0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hyh62"]
+_data = {
+"RESET": SubResource("2"),
+"empty": SubResource("3"),
+"no_animated_sprite": ExtResource("1"),
+"with_animated_sprite": SubResource("1")
 }
 
 [node name="Example" type="Node2D"]
 
-[node name="Fox" type="AnimatedSprite" parent="."]
-position = Vector2( -46.1149, -15 )
-frames = ExtResource( 2 )
-animation = "run_60"
+[node name="Fox" type="AnimatedSprite2D" parent="."]
+position = Vector2(-46.1149, -15)
+animation = &"default_fast_2"
 
-[node name="Frog" type="AnimatedSprite" parent="."]
+[node name="Frog" type="AnimatedSprite2D" parent="."]
 visible = false
-frames = ExtResource( 3 )
+sprite_frames = ExtResource("3")
 
 [node name="SomethingElse" type="Node2D" parent="."]
-position = Vector2( -30, -21 )
+position = Vector2(-30, -21)
 
-[node name="Sprite" type="Sprite" parent="SomethingElse"]
-modulate = Color( 1, 0, 0, 1 )
-position = Vector2( -43, 96 )
-texture = ExtResource( 4 )
+[node name="Sprite2D" type="Sprite2D" parent="SomethingElse"]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(-43, 96)
+texture = ExtResource("4")
 
 [node name="AnotherOne" type="Node2D" parent="."]
 
-[node name="Sprite" type="Sprite" parent="AnotherOne"]
-position = Vector2( 73, 54 )
-texture = ExtResource( 4 )
+[node name="Sprite2D" type="Sprite2D" parent="AnotherOne"]
+position = Vector2(73, 54)
+texture = ExtResource("4")
 
 [node name="AnbimationPlayerHolder" type="Node2D" parent="."]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnbimationPlayerHolder"]
 root_node = NodePath("../..")
-anims/RESET = SubResource( 2 )
-anims/empty = SubResource( 3 )
-anims/no_animated_sprite = ExtResource( 1 )
-anims/with_animated_sprite = SubResource( 1 )
+libraries = {
+"": SubResource("AnimationLibrary_hyh62")
+}

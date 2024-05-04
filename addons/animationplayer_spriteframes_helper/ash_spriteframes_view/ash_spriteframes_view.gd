@@ -1,17 +1,17 @@
-tool
+@tool
 extends Control
 
-export(SpriteFrames) var sprite_frames: SpriteFrames setget _set_sprite_frames, _get_sprite_frames
-export(NodePath) var _option_button: NodePath
-export(NodePath) var _animation_view: NodePath
+@export var sprite_frames: SpriteFrames: get = _get_sprite_frames, set = _set_sprite_frames
+@export var _option_button: NodePath
+@export var _animation_view: NodePath
 
 var _sprite_frames: SpriteFrames
 
-onready var option_button: OptionButton = get_node(_option_button)
-onready var animation_view: Control = get_node(_animation_view)
+@onready var option_button: OptionButton = get_node(_option_button)
+@onready var animation_view: Control = get_node(_animation_view)
 
 func _ready():
-	option_button.connect("item_selected", self, "_on_item_selected")
+	option_button.connect("item_selected", Callable(self, "_on_item_selected"))
 
 
 func _exit_tree():

@@ -1,20 +1,20 @@
-tool
+@tool
 extends Control
 
-export(SpriteFrames) var sprite_frames: SpriteFrames
-export(String) var animation_name: String
-export(NodePath) var fps_value_label: NodePath
-export(NodePath) var looping_value_label: NodePath
-export(NodePath) var frame_count_label: NodePath
-export(NodePath) var animation_preview_texture_rect: NodePath
+@export var sprite_frames: SpriteFrames
+@export var animation_name: String
+@export var fps_value_label: NodePath
+@export var looping_value_label: NodePath
+@export var frame_count_label: NodePath
+@export var animation_preview_texture_rect: NodePath
 
 var _current_frame: int = 0
 var _time_since_last_frame: float = 0
 
-onready var _fps_value_label: Label = get_node(fps_value_label)
-onready var _looping_value_label: Label = get_node(looping_value_label)
-onready var _frame_count_label: Label = get_node(frame_count_label)
-onready var _animation_preview_texture_rect: TextureRect = get_node(animation_preview_texture_rect)
+@onready var _fps_value_label: Label = get_node(fps_value_label)
+@onready var _looping_value_label: Label = get_node(looping_value_label)
+@onready var _frame_count_label: Label = get_node(frame_count_label)
+@onready var _animation_preview_texture_rect: TextureRect = get_node(animation_preview_texture_rect)
 
 
 func _ready():
