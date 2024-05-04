@@ -20,7 +20,7 @@ var _time_since_last_frame: float = 0
 func _ready():
 	if not sprite_frames || not animation_name:
 		return
-	set_data({"sprite_frames": sprite_frames, "name": animation_name})
+	set_data({"frames": sprite_frames, "name": animation_name})
 
 
 func _process(delta):

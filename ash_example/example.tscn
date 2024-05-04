@@ -215,7 +215,6 @@ metadata/_edit_group_ = true
 
 [node name="Frog" type="AnimatedSprite2D" parent="Frog"]
 sprite_frames = SubResource("SpriteFrames_yqgtl")
-frame = 1
 
 [node name="FrogAnimationPlayer" type="AnimationPlayer" parent="Frog"]
 libraries = {

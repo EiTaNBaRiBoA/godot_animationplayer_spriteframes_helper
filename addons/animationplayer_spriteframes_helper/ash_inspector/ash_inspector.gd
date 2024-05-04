@@ -11,7 +11,7 @@ extends Control
 @export var insert_control: NodePath
 @export var set_animation_length_toggle: NodePath
 
-var _animatedsprite_nodes: Array
+var _animatedsprite_nodes: Array = []
 
 @onready var _refresh_button: Button = get_node(refresh_button)
 @onready var _assigned_animation_option_button: OptionButton = get_node(assigned_animation_option_button)
@@ -36,13 +36,20 @@ func _ready():
 	
 	_animatedsprite_nodes = _get_all_animatedsprite_nodes()
 	var anims = animation_player.get_animation_list()
+	print(anims.size())
 	for a in anims:
+		print(a)
 		_assigned_animation_option_button.add_item(a)
+		print(animation_player.assigned_animation)
 		if animation_player.assigned_animation == a:
 			var i := _assigned_animation_option_button.get_item_count()- 1
 			_assigned_animation_option_button.select(i)
 			refresh_animation()
 
+func _process(delta: float) -> void:
+	if _animatedsprite_nodes.size() == 0:
+		_animatedsprite_nodes = _get_all_animatedsprite_nodes()
+	refresh_animation()
 
 func _exit_tree():
 	_cleanup()
@@ -63,7 +70,8 @@ func _get_all_animatedsprite_nodes() -> Array:
 
 func _on_animation_assigned(idx: int) -> void:
 	animation_player.assigned_animation = _assigned_animation_option_button.get_item_text(idx)
-	refresh_animation()
+	if (_current_animation_preview.sprite_frames.size() == 0):
+		refresh_animation()
 
 
 func _cleanup():
@@ -109,7 +117,7 @@ func refresh_animation():
 		_animatedsprite_option_button.add_item(animated_sprite.name)
 		_animatedsprite_option_button.set_item_metadata(
 				_animatedsprite_option_button.get_item_count()-1,
-				{"sprite_frames": animated_sprite.sprite_frames, "node": animated_sprite, "track_exists": true})
+				{"frames": animated_sprite.sprite_frames, "node": animated_sprite, "track_exists": true})
 	
 	if animatedsprites_not_in_animation.size() > 0 && animatedsprites_in_animation.size() > 0 :
 		_animatedsprite_option_button.add_separator()
@@ -118,7 +126,7 @@ func refresh_animation():
 		_animatedsprite_option_button.add_item(animated_sprite.name)
 		_animatedsprite_option_button.set_item_metadata(
 				_animatedsprite_option_button.get_item_count()-1,
-				{"sprite_frames": animated_sprite.sprite_frames, "node": animated_sprite, "track_exists": false})
+				{"frames": animated_sprite.sprite_frames, "node": animated_sprite, "track_exists": false})
 	
 	# _option_button_container.visible = _animatedsprite_option_button.get_item_count() > 0
 	if _animatedsprite_option_button.get_item_count() <= 0:
@@ -130,12 +138,12 @@ func refresh_animation():
 
 		
 func _on_item_selected(idx: int) -> void:
-	_current_animation_preview.sprite_frames = _animatedsprite_option_button.get_item_metadata(idx)["sprite_frames"]
+	_current_animation_preview.sprite_frames = _animatedsprite_option_button.get_item_metadata(idx)["frames"]
 
 
 func _insert_track() -> void:
 	var sm = _animatedsprite_option_button.get_selected_metadata()
-	var frames: SpriteFrames = sm["sprite_frames"]
+	var frames: SpriteFrames = sm["frames"]
 	var target_node: AnimatedSprite2D = sm["node"]
 	var target_node_path: = _animation_player_root_node().get_path_to(target_node)
 	var target_animation := animation_player.get_animation(animation_player.assigned_animation)
@@ -145,7 +153,7 @@ func _insert_track() -> void:
 	# first get all target_tracks
 	var target_tracks = _get_target_tracks(target_animation, target_node)
 	# insert tracks that don't exist
-	for k in ["sprite_frames", "animation", "frame"]:
+	for k in ["frames", "animation", "frame"]:
 		if target_tracks[k] != -1:
 			continue
 
@@ -171,7 +179,7 @@ func _insert_track() -> void:
 				target_animation.track_remove_key(track_idx, key_idx)
 	# add keys for "frames", "animation"
 	for k in[	
-				{"property": "sprite_frames", "value": frames},
+				{"property": "frames", "value": frames},
 				{"property":"animation", "value": source_animation},
 			]:
 		target_animation.track_insert_key(target_tracks[k["property"]], t, k["value"])
@@ -206,8 +214,8 @@ func _get_target_tracks(target_animation: Animation, target_node: Node) -> Dicti
 		for i in p.get_subname_count():
 			var sn := p.get_subname(i)
 			match sn:
-				"sprite_frames":
-					output["sprite_frames"] = path_idx["idx"]
+				"frames":
+					output["frames"] = path_idx["idx"]
 					break
 				"animation":
 					output["animation"] = path_idx["idx"]
@@ -215,7 +223,7 @@ func _get_target_tracks(target_animation: Animation, target_node: Node) -> Dicti
 				"frame":
 					output["frame"] = path_idx["idx"]
 					break
-	for k in ["sprite_frames", "animation", "frame"]:
+	for k in ["frames", "animation", "frame"]:
 		if not output.has(k):
 			output[k] = -1
 	return output

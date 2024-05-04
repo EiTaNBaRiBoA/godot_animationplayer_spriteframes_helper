@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://d1thpa5vnk70o"]
 
 [ext_resource type="Script" path="res://addons/animationplayer_spriteframes_helper/ash_inspector/ash_inspector.gd" id="1"]
-[ext_resource type="PackedScene" path="res://addons/animationplayer_spriteframes_helper/ash_spriteframes_view/ash_spriteframes_view.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://b4v84l1gdh7ma" path="res://addons/animationplayer_spriteframes_helper/ash_spriteframes_view/ash_spriteframes_view.tscn" id="2"]
 
 [sub_resource type="StyleBoxEmpty" id="2"]
 
