@@ -20,7 +20,7 @@ var _time_since_last_frame: float = 0
 func _ready():
 	if not sprite_frames || not animation_name:
 		return
-	set_data({"frames": sprite_frames, "name": animation_name})
+	set_data({"sprite_frames": sprite_frames, "name": animation_name})
 
 
 func _process(delta):
@@ -37,7 +37,7 @@ func _process(delta):
 		if _time_since_last_frame > 1.0 / sprite_frames.get_animation_speed(animation_name):
 			_current_frame = (_current_frame + 1) % sprite_frames.get_frame_count(animation_name)
 			_time_since_last_frame = 0;
-			_animation_preview_texture_rect.texture = sprite_frames.get_frame(animation_name, _current_frame)
+			_animation_preview_texture_rect.texture = sprite_frames.get_frame_texture(animation_name, _current_frame)
 
 
 func set_data(d :Dictionary):
@@ -46,7 +46,7 @@ func set_data(d :Dictionary):
 	_fps_value_label.text = "%d" % sprite_frames.get_animation_speed(animation_name)
 	_looping_value_label.text =  _is_looping(); 
 	_frame_count_label.text = "%d" % sprite_frames.get_frame_count(animation_name)
-	_animation_preview_texture_rect.texture = sprite_frames.get_frame(animation_name, _current_frame)
+	_animation_preview_texture_rect.texture = sprite_frames.get_frame_texture(animation_name, _current_frame)
 
 
 func _is_looping() -> String:

@@ -102,8 +102,8 @@ _data = {
 [node name="Example" type="Node2D"]
 
 [node name="Fox" type="AnimatedSprite2D" parent="."]
-position = Vector2(-46.1149, -15)
-animation = &"default_fast_2"
+position = Vector2(-49.6755, -15)
+animation = &""
 
 [node name="Frog" type="AnimatedSprite2D" parent="."]
 visible = false

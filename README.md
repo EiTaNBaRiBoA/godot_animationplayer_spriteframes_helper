@@ -19,7 +19,7 @@ So, `AnimationPlayer SpriteFrames Helper` is here to automate the boring for you
 # How To
 * Follow the [ Godot plugin installation guide]( https://docs.godotengine.org/en/stable/tutorials/plugins/editor/installing_plugins.html).
 * Enable the plugin in the Project Settings:
-    <img align="center" src="./screenshots/plugin.png" />
+	<img align="center" src="./screenshots/plugin.png" />
 
 A new view will now appear in your Inspector dock when you select any `AnimationPlayer`:
 <img align="center" src="./screenshots/inspector_dock.png" />
