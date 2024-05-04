@@ -23,33 +23,35 @@ var _animatedsprite_nodes: Array = []
 @onready var _insert_control: Control = get_node(insert_control)
 @onready var _set_animation_length_toggle: CheckBox = get_node(set_animation_length_toggle)
 
-var animation_player: AnimationPlayer
+
+var isPlaying : bool = false
+var animation_player: AnimationPlayer # This var is set by ash_inspector_plugin.gd
 
 func _ready():
-	_refresh_button.connect("pressed", Callable(self, "refresh_animation"))
-	_animatedsprite_option_button.connect("item_selected", Callable(self, "_on_item_selected"))
-	_insert_button.connect("pressed", Callable(self, "_insert_track"))
-	_assigned_animation_option_button.connect("item_selected", Callable(self, "_on_animation_assigned"))
+	_refresh_button.pressed.connect(refresh_animation)
+	_animatedsprite_option_button.item_selected.connect(_on_item_selected)
+	_insert_button.pressed.connect(_insert_track)
+	_assigned_animation_option_button.item_selected.connect(_on_animation_assigned)
 	
 	if not animation_player:
 		return
 	
 	_animatedsprite_nodes = _get_all_animatedsprite_nodes()
 	var anims = animation_player.get_animation_list()
-	print(anims.size())
 	for a in anims:
-		print(a)
 		_assigned_animation_option_button.add_item(a)
-		print(animation_player.assigned_animation)
 		if animation_player.assigned_animation == a:
 			var i := _assigned_animation_option_button.get_item_count()- 1
 			_assigned_animation_option_button.select(i)
 			refresh_animation()
+			isPlaying =true 
 
+
+#fixing animation not playing when selection animation player
 func _process(delta: float) -> void:
-	if _animatedsprite_nodes.size() == 0:
-		_animatedsprite_nodes = _get_all_animatedsprite_nodes()
-	refresh_animation()
+	if !isPlaying && animation_player!=null:
+		refresh_animation()
+		isPlaying = true
 
 func _exit_tree():
 	_cleanup()

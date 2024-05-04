@@ -13,7 +13,7 @@ func _parse_begin(object):
 
 func _parse_end(object):
 	var control_instance =	preload('res://addons/animationplayer_spriteframes_helper/ash_inspector/ash_inspector.tscn').instantiate()
-	control_instance.set("animation_player", _animation_player)
+	control_instance.set("animation_player", _animation_player) # Setting var animation_player in ash_inspector.gd
 	var ep = EditorProperty.new()
 	ep.set_label("Sprite Frame Helper") 
 	ep.add_child(control_instance)

@@ -11,7 +11,7 @@ var _sprite_frames: SpriteFrames
 @onready var animation_view: Control = get_node(_animation_view)
 
 func _ready():
-	option_button.connect("item_selected", Callable(self, "_on_item_selected"))
+	option_button.item_selected.connect(_on_item_selected)
 
 
 func _exit_tree():
