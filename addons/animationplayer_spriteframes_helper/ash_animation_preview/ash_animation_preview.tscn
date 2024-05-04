@@ -1,130 +1,90 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=3 format=3 uid="uid://dka4h441p5g45"]
 
-[ext_resource path="res://addons/animationplayer_spriteframes_helper/ash_animation_preview/ash_animation_preview.gd" type="Script" id=1]
+[ext_resource type="Script" path="res://addons/animationplayer_spriteframes_helper/ash_animation_preview/ash_animation_preview.gd" id="1"]
 
-[sub_resource type="StyleBoxEmpty" id=1]
+[sub_resource type="StyleBoxEmpty" id="1"]
 
 [node name="AnimationPreview" type="MarginContainer"]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+script = ExtResource("1")
 fps_value_label = NodePath("PanelContainer/HBoxContainer/CenterContainer2/HBoxContainer/FPSContainer/FPSValue")
 looping_value_label = NodePath("PanelContainer/HBoxContainer/CenterContainer2/HBoxContainer/LoopingContainer/LoopingValue")
 frame_count_label = NodePath("PanelContainer/HBoxContainer/CenterContainer2/HBoxContainer/FrameCountContainer/FrameCountValue")
 animation_preview_texture_rect = NodePath("PanelContainer/HBoxContainer/MarginContainer/AnimationPreview")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
-offset_right = 300.0
-offset_bottom = 600.0
-theme_override_styles/panel = SubResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+layout_mode = 2
+theme_override_styles/panel = SubResource("1")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
-offset_right = 300.0
-offset_bottom = 600.0
+layout_mode = 2
 alignment = 1
 
 [node name="CenterContainer2" type="CenterContainer" parent="PanelContainer/HBoxContainer"]
-offset_left = 21.0
-offset_right = 134.0
-offset_bottom = 600.0
+layout_mode = 2
 
 [node name="HBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer/CenterContainer2"]
-offset_top = 267.0
-offset_right = 113.0
-offset_bottom = 333.0
+layout_mode = 2
 
 [node name="FPSContainer" type="HBoxContainer" parent="PanelContainer/HBoxContainer/CenterContainer2/HBoxContainer"]
-offset_right = 113.0
-offset_bottom = 14.0
+layout_mode = 2
 
 [node name="FPSLabel" type="Label" parent="PanelContainer/HBoxContainer/CenterContainer2/HBoxContainer/FPSContainer"]
-offset_right = 26.0
-offset_bottom = 14.0
+layout_mode = 2
 text = "FPS:"
 
 [node name="FPSValue" type="Label" parent="PanelContainer/HBoxContainer/CenterContainer2/HBoxContainer/FPSContainer"]
-offset_left = 30.0
-offset_right = 46.0
-offset_bottom = 14.0
+layout_mode = 2
 text = "99"
 
 [node name="HSeparator" type="HSeparator" parent="PanelContainer/HBoxContainer/CenterContainer2/HBoxContainer"]
-offset_top = 18.0
-offset_right = 113.0
-offset_bottom = 22.0
+layout_mode = 2
 
 [node name="LoopingContainer" type="HBoxContainer" parent="PanelContainer/HBoxContainer/CenterContainer2/HBoxContainer"]
-offset_top = 26.0
-offset_right = 113.0
-offset_bottom = 40.0
+layout_mode = 2
 
 [node name="LoopingValue" type="Label" parent="PanelContainer/HBoxContainer/CenterContainer2/HBoxContainer/LoopingContainer"]
-offset_right = 62.0
-offset_bottom = 14.0
+layout_mode = 2
 text = "looping"
 uppercase = true
 
 [node name="HSeparator2" type="HSeparator" parent="PanelContainer/HBoxContainer/CenterContainer2/HBoxContainer"]
-offset_top = 44.0
-offset_right = 113.0
-offset_bottom = 48.0
+layout_mode = 2
 
 [node name="FrameCountContainer" type="HBoxContainer" parent="PanelContainer/HBoxContainer/CenterContainer2/HBoxContainer"]
-offset_top = 52.0
-offset_right = 113.0
-offset_bottom = 66.0
+layout_mode = 2
 
 [node name="FrameCountLabel" type="Label" parent="PanelContainer/HBoxContainer/CenterContainer2/HBoxContainer/FrameCountContainer"]
-offset_right = 85.0
-offset_bottom = 14.0
+layout_mode = 2
 text = "Frame Count:"
 
 [node name="FrameCountValue" type="Label" parent="PanelContainer/HBoxContainer/CenterContainer2/HBoxContainer/FrameCountContainer"]
-offset_left = 89.0
-offset_right = 113.0
-offset_bottom = 14.0
+layout_mode = 2
 text = "999"
 uppercase = true
 
 [node name="Control" type="Control" parent="PanelContainer/HBoxContainer"]
-offset_left = 138.0
-offset_right = 138.0
-offset_bottom = 600.0
+layout_mode = 2
 
 [node name="Control2" type="Control" parent="PanelContainer/HBoxContainer"]
-offset_left = 142.0
-offset_right = 142.0
-offset_bottom = 600.0
+layout_mode = 2
 
 [node name="Control3" type="Control" parent="PanelContainer/HBoxContainer"]
-offset_left = 146.0
-offset_right = 146.0
-offset_bottom = 600.0
+layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer/HBoxContainer"]
-offset_left = 150.0
-offset_right = 278.0
-offset_bottom = 600.0
+layout_mode = 2
 
 [node name="ReferenceRect" type="ReferenceRect" parent="PanelContainer/HBoxContainer/MarginContainer"]
-offset_right = 128.0
-offset_bottom = 600.0
-border_color = Color( 0.878431, 0.878431, 0.878431, 1 )
+layout_mode = 2
+border_color = Color(0.878431, 0.878431, 0.878431, 1)
 
 [node name="AnimationPreview" type="TextureRect" parent="PanelContainer/HBoxContainer/MarginContainer"]
-offset_right = 128.0
-offset_bottom = 600.0
-custom_minimum_size = Vector2( 128, 128 )
 clip_contents = true
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 stretch_mode = 6
-__meta__ = {
-"_edit_use_anchors_": false
-}

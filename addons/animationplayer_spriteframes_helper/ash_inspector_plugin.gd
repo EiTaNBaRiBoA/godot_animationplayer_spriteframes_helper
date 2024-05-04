@@ -19,7 +19,6 @@ func _parse_end(object):
 	ep.add_child(control_instance)
 	ep.set_bottom_editor(control_instance)
 	add_custom_control(ep)
-	#EditorInterface.get_inspector()
 
 
 

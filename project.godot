@@ -13,7 +13,7 @@ config_version=5
 config/name="SpriteFrame Animation"
 run/main_scene="res://ash_example/example.tscn"
 config/features=PackedStringArray("4.2")
-config/icon="res://sa_example/icon.png"
+config/icon="res://icon.png"
 
 [display]
 
